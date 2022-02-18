@@ -72,10 +72,11 @@ O primeiro passo é procurar, de maneira direta e objetiva respostas para as per
   |Mystery|Romance    |Sci-Fi     |Sport      |Thriller |War    |Western|
 
   Com essas informações, pode-se concluir que os 5 gêneros mais que mais lucraram foram:
+  
   |Gênero |Gross	|%Gross |
   |-  |-  |-  |
   |Adventure   |$28.404.248.576,00 |18,25%  |
-	|Drama       |$28.258.189.312,00 |18,16%  |
+  |Drama       |$28.258.189.312,00 |18,16%  |
   |Action      |$22.227.009.536,00 |14,28%  |
   |Comedy      |$12.600.133.632,00 |8,10%   |
   |Sci-Fi      |$9.051.814.912,00  |5,82%   |
