@@ -4,7 +4,8 @@ import pandas as pd
 pd.set_option('display.float_format', '{:.2f}'.format)
 
 # Importando base de dados
-df = pd.read_csv(r'H:\My Drive\1. ESTUDO\Desafio de BI - Semana 01 - Alura Filmes\Dados Brutos\Filmes.csv')
+# df = pd.read_csv(r'H:\My Drive\1. ESTUDO\Desafio de BI - Semana 01 - Alura Filmes\Dados Brutos\Filmes.csv')
+df = pd.read_csv(r'G:\My Drive\1. ESTUDO\Desafio de BI - Semana 01 - Alura Filmes\Dados Brutos\Filmes.csv')
 
 # Primeiras informações
 df.head()
@@ -68,3 +69,28 @@ for genre in genres_list:
 
 gross_per_genre['%Gross'] = ((gross_per_genre.Gross/gross_per_genre.Gross.sum()).round(4))*100
 gross_per_genre.sort_values(by=['Gross'],ascending=False).reset_index(drop=True)[:4].sum()
+
+## Estrelas que mais aparecem em filmes
+
+### Considerando qualquer posição
+all_stars = pd.concat([df.Star1,df.Star2,df.Star3,df.Star4]).drop_duplicates().reset_index(drop=True)
+print(f'O número total de atores estrelando os filmes é {len(all_stars)}')
+all_stars
+
+stars = pd.DataFrame()
+(df.values == 'Tim Robbins').any(1).sum()
+for star in all_stars:
+        a_star = (df.values == star).any(1).sum()
+        s_temp = {}
+        s_temp['Star'] = star
+        s_temp['NofMovies'] = a_star
+        s_temp = pd.DataFrame([s_temp])
+        stars = pd.concat([stars,s_temp])
+
+stars.reset_index(drop=True,inplace=True)
+stars.sort_values(by=['NofMovies'],ascending=False)[:20]
+
+### Considerando a ordem:
+df.groupby('Star1').count()[['Id_Title']].sort_values(by=['Id_Title'],ascending=False)[:7]
+
+df.groupby('Star2').count()[['Id_Title']].sort_values(by=['Id_Title'],ascending=False)[:7]
