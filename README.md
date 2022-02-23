@@ -90,7 +90,6 @@ O primeiro passo é procurar, de maneira direta e objetiva respostas para as per
 
   Para a primeira, vamos fazer como antes, obter uma lista de todas as atores e buscar quais filmes eles aparecem. Já para a segunda, basta utilizar o método `groupby` e usar como agregador `count` e contar quantos filmes aparecem.
 
-
   Ao contar apenas as aparições como estrelas dos filmes considerados, todos os 7 atores que mais aparecem como estrelas de filmes são homens e estes são:
 
   |Star|	Número de Filmes|
@@ -103,7 +102,7 @@ O primeiro passo é procurar, de maneira direta e objetiva respostas para as per
   |Christian Bale |11 |
   |Leonardo DiCaprio|11|
 
-  enquanto a mulher que mais estrlou filmes foi Scarlett Johansson com 9 filmes, empatada em décimo lugar.
+  enquanto a mulher que mais estrelou filmes foi Scarlett Johansson com 9 filmes, empatada em décimo lugar.
 
   Já quando consideramos a ordem, as ordens mudam um pouco
 
@@ -128,3 +127,55 @@ O primeiro passo é procurar, de maneira direta e objetiva respostas para as per
   |Brad Pitt    |4  |
   |Ed Harris    |4  |
   |Julie Delpy  |4  |
+
+4. O dinheiro ganho do filme por estrela 1, estrela 2, estrela 3 e estrela 4
+
+  Muito relacionada com a pergunta anterior, entender quanto os filmes lucraram com base nos atores pode ser obtido utlizando o método `groupby`.
+
+  Com isso, temos: observando apenas as Estelas 1:
+
+  |Estrela 1  |Valor Faturado |
+  |-  |-  |
+  |Tom Hanks  |$2.493.097.472,00  |
+  |Joe Russo  |$2.205.039.360,00  |
+  |Leonardo DiCaprio  |$1.877.321.728,00  |
+  |Daniel Radcliffe   |$1.835.901.056,00  |
+  |Christian Bale     |$1.351.591.424,00  |
+  |Robert Downey Jr.  |$1.150.720.256,00  |
+  |Elijah Wood        |$1.035.942.016,00  |
+
+  e com isso podemos notar que dos atores que mais geraram receita, apenas Tom Hanks e o Leonardo DiCaprio aparecem na lista maior quantidade de filmes estrelados. Pode-se ainda destacar a presença de estrelas de séries de filmes como Vingadores (Joe Russo), Harry Potter (Daniel Radcliffe) dentre os atores que geraram mais receita.
+
+  Para a segunda estrela, a tendencia se repete, com atores presentes em diversas séries:
+
+  |Estrela 2 |Valor Faturado    |
+  |-  |-  |
+  |Emma Watson  |$1.644.165.248,00  |
+  |Robert Downey Jr. |$1.570.268.544,00  |
+  |Chris Evans  |$1.456.490.240,00  |
+  |Ian McKellen |$1.195.021.184,00  |
+  |Zoe Saldana  |$1.150.320.768,00  |
+  |Tim Allen    |$1.040.839.104,00  |
+  |John Boyega  |$936.662.208,00    |
+
+  Emma Watson representando Harry Potter, Robert Downey Jr os Vingadores e Ian McKellen a saga Senhor dos Anéis.
+
+
+5. O percentual dos (n) gêneros mais explorados nos filmes
+
+  Obtido de maneira simlilar ao que foi utilizado ao encontrar os generos mais lucrativos, os 10 generos mais explorados em filmes são:
+
+  |Gênero |Quantidade de Filmes |
+  |-  |-  |
+  |Drama  |724  |
+  |Comedy |233  |
+  |Crime  |209  |
+  |Adventure  |196  |
+  |Action     |189  |
+  |Thriller   |137  |
+  |Romance    |125  |
+  |Biography  |109  |
+  |Mystery    |99   |
+  |Animation  |82   |
+
+  Aqui, vale a pena lembrar que o número de gêneros é muito maior do que os 1000 filmes que existem na base pois um filme pode ter até três generos.

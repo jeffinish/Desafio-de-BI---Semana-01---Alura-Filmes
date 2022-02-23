@@ -94,3 +94,32 @@ stars.sort_values(by=['NofMovies'],ascending=False)[:20]
 df.groupby('Star1').count()[['Id_Title']].sort_values(by=['Id_Title'],ascending=False)[:7]
 
 df.groupby('Star2').count()[['Id_Title']].sort_values(by=['Id_Title'],ascending=False)[:7]
+
+## O dinheiro ganho do filme por estrela 1, estrela 2, estrela 3 e estrela 4
+
+### Por Star1
+gross_per_star1 = df.groupby('Star1').sum()[['Gross']].sort_values(by=['Gross'],ascending=False).reset_index()
+gross_per_star1[:7]
+
+### Por Star2
+gross_per_star2 = df.groupby('Star2').sum()[['Gross']].sort_values(by=['Gross'],ascending=False).reset_index()
+gross_per_star2[:7]
+
+
+## O percentual dos (n) gêneros mais explorados nos filmes
+genres_list = genres_all.iloc[:-1,0] #Ignorando o último que é o valor 'None'
+count_per_genre = pd.DataFrame()
+for genre in genres_list:
+    f = df[df['Genre'].str.contains(genre)]
+    # print(f.shape)
+    gpg_temp = {}
+    gpg_temp['Gênero'] = genre
+    gpg_temp['Quantidade de Filmes'] = f.shape[0]
+    gpg_temp
+    t = pd.DataFrame([gpg_temp])
+    t = t.astype({'Quantidade de Filmes':'int'})
+    count_per_genre = pd.concat([count_per_genre,t])
+
+count_per_genre.sort_values(by=['Quantidade de Filmes'],ascending=False,inplace=True)
+count_per_genre.reset_index(drop=True,inplace=True)
+count_per_genre
