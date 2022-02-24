@@ -21,6 +21,10 @@ df.Gross
 df['Gross'] = pd.to_numeric(df.Gross.str.replace(',',''),downcast='float')
 df.head()
 
+# Exportando a base tratada
+
+df.to_csv(r'G:\My Drive\1. ESTUDO\Desafio de BI - Semana 01 - Alura Filmes\Dados Tratados\Filmes_Tratados.csv',index=False)
+
 # Respondendo algumas perguntas básicas:
 
 ## Quais foram os filmes mais votados
@@ -61,14 +65,17 @@ for genre in genres_list:
     gpg_temp = {}
     gpg_temp['Gênero'] = genre
     gpg_temp['Gross'] = f['Gross'].sum().astype('float')
+    gpg_temp['Quantidade'] = f.shape[0]
     gpg_temp
     t = pd.DataFrame([gpg_temp])
-    t = t.astype({'Gross':'float'})
+    t = t.astype({'Gross':'float','Quantidade':'int'})
     gross_per_genre = pd.concat([gross_per_genre,t])
 
+gross_per_genre['Avg'] = gross_per_genre.Gross/gross_per_genre.Quantidade
 
 gross_per_genre['%Gross'] = ((gross_per_genre.Gross/gross_per_genre.Gross.sum()).round(4))*100
 gross_per_genre.sort_values(by=['Gross'],ascending=False).reset_index(drop=True)[:4].sum()
+gross_per_genre.sort_values(by=['Avg'],ascending=False)
 
 ## Estrelas que mais aparecem em filmes
 
@@ -123,3 +130,6 @@ for genre in genres_list:
 count_per_genre.sort_values(by=['Quantidade de Filmes'],ascending=False,inplace=True)
 count_per_genre.reset_index(drop=True,inplace=True)
 count_per_genre
+
+
+Marcos -> 10:00
