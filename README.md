@@ -1,5 +1,8 @@
 # Desafio-de-BI-Semana-01-Alura-Filmes
 
+
+A apresentação com as análises preliminares pode ser encontrada neste [link](https://docs.google.com/presentation/d/1a6u62HlL-PXlsc5BwU1Nzce-c3XjXsBqvBDaAeyauF4/edit?usp=sharing)
+
 ## Etapa 1 : Visão geral dos dados e primeiros ajustes
 
 Começamos olhando os dados de uma maneira mais geral e fazendo os primeiros ajustes caso sejam necessários.
